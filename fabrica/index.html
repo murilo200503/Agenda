@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Só Anota</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container-entrada">
+        <input type="text" id="entradaTarefa" placeholder="Nova tarefa...">
+        <button class="btn-mine btn-adicionar" onclick="adicionarTarefa()">➕</button>
+    </div>
+
+    <div class="container-mesa-encantamento">
+        <div class="capa-livro">
+            
+            <div class="lombada"></div>
+            
+            <div class="pagina">
+                <div class="cabecalho" id="rotuloEsquerdo">Página 1 de 2</div>
+                <ul id="listaEsquerda"></ul>
+            </div>
+
+            <div class="pagina">
+                <div class="cabecalho" id="rotuloDireito">Página 2 de 2</div>
+                <ul id="listaDireita"></ul>
+                
+                <div class="rodape-nav">
+                    <span class="seta" onclick="paginaAnterior()">⇦</span>
+                    <span class="seta" onclick="proximaPagina()">⇨</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

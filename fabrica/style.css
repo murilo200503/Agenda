@@ -1,0 +1,181 @@
+/* Zera os espaços bugados do navegador e bota fonte de pixel art. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Courier New", Courier, monospace;
+    image-rendering: pixelated; 
+}
+
+/* O fundão. Imagem do Mine esticada e centraliza tudo bem no meio. */
+body {
+    background-image: url('mine.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* A caixa do input. Fundo cinza e borda 3D de bloquinho. */
+.container-entrada {
+    z-index: 200;
+    margin-bottom: 25px;
+    display: flex;
+    gap: 10px;
+    background: #c6c6c6; 
+    padding: 10px;
+    border: 4px solid;
+    border-color: #ffffff #555555 #555555 #ffffff; 
+}
+
+/* Onde tu digita de fato. Fundo preto e letra branca. */
+input {
+    background: #000000; 
+    color: #ffffff; 
+    text-shadow: 2px 2px #333333; 
+    border: 2px solid #a0a0a0; 
+    padding: 10px;
+    outline: none;
+    width: 300px;
+    font-size: 16px;
+}
+
+/* O estilo do botão. Borda saltada pra parecer 3D e sombra. */
+.btn-mine {
+    background: #c6c6c6;
+    color: #ffffff; 
+    text-shadow: 2px 2px #333333; 
+    border: 4px solid;
+    border-color: #ffffff #555555 #555555 #ffffff; 
+    cursor: pointer;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.5);
+    transition: transform 0.1s;
+    z-index: 10;
+}
+
+/* Efeito do clique: inverte a borda pro botão afundar na tela. */
+.btn-mine:active {
+    border-color: #555555 #ffffff #ffffff #555555; 
+    transform: translateY(4px);
+    box-shadow: 0 0px 0 rgba(0,0,0,0.5);
+}
+
+/* Deixa o botão de '+' um pouquinho mais gordinho. */
+.btn-adicionar { 
+    padding: 8px 20px; 
+    font-size: 16px; 
+}
+
+/* A capa do livro. Cor de papel velho e cortado bem na metade (Grid). */
+.capa-livro {
+    background-color: #e6d1ac;
+    width: 800px;
+    height: 520px;
+    border: 6px solid #a05e43; 
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Sombra transparente no meio pra fingir que o livro tá dobrado. */
+.lombada {
+    position: absolute; 
+    left: 50%; 
+    top: 0; 
+    bottom: 0; 
+    width: 4px; 
+    background: rgba(107, 62, 44, 0.15); 
+    transform: translateX(-50%);
+}
+
+/* O respiro das páginas. Evita que o texto esmague nas bordas. */
+.pagina { 
+    padding: 40px 35px; 
+    display: flex; 
+    flex-direction: column; 
+    position: relative; 
+}
+
+/* O título bonitinho lá em cima (ex: Página 1). */
+.cabecalho { 
+    text-align: center; 
+    color: #7a7a7a; 
+    font-size: 16px; 
+    font-weight: bold; 
+    margin-bottom: 20px; 
+}
+
+/* A caixa invisível da lista que empurra as coisas pro rodapé. */
+ul { 
+    list-style: none; 
+    flex-grow: 1; 
+}
+
+/* Cada tarefa. Joga o texto pra esquerda e o "X" de deletar pra direita. */
+li {
+    color: #303030; 
+    font-size: 16px; 
+    line-height: 1.5; 
+    margin-bottom: 8px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+/* O texto da tarefa em si. Clicável e em negrito. (Atenção: ajuste no seu JS) */
+.texto-tarefa { 
+    cursor: pointer; 
+    flex: 1; 
+    font-weight: bold; 
+}
+
+/* Tarefa concluída: risca a palavra e deixa cinza. (Atenção: ajuste no seu JS) */
+.concluido { 
+    text-decoration: line-through; 
+    color: #888; 
+    font-weight: normal; 
+}
+
+/* O famoso "X" vermelho de apagar. (Atenção: ajuste no seu JS) */
+.btn-excluir { 
+    color: #aa0000; 
+    cursor: pointer; 
+    font-size: 14px; 
+    font-weight: bold; 
+    margin-left: 10px; 
+    padding: 2px 5px; 
+}
+
+/* Passou o mouse no "X"? Fica com o fundo levemente vermelho. */
+.btn-excluir:hover { 
+    background: rgba(170,0,0,0.1); 
+}
+
+/* O rodapé invisível que prende as setinhas embaixo. */
+.rodape-nav {
+    position: absolute; 
+    bottom: 20px; 
+    width: calc(100% - 70px);
+    display: flex; 
+    justify-content: space-between;
+}
+
+/* As setinhas de passar folha. Grandes, cinzas e blindadas contra clique duplo acidental. */
+.seta { 
+    font-size: 25px; 
+    color: #7a7a7a; 
+    cursor: pointer; 
+    user-select: none; 
+    transition: color 0.2s; 
+}
+
+/* Escurece a setinha quando o mouse passa por ela. */
+.seta:hover { 
+    color: #303030; 
+}
